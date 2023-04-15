@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package chat;
+
+service Chat {
+  rpc SendMessage(Message) returns (Vazio) {}
+  rpc ReceiveMessages(Vazio) returns (stream Message) {}
+}
+
+message Message {
+  string username = 1;
+  string text = 2;
+}
+message Vazio{
+
+}
