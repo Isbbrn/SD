@@ -1,16 +1,15 @@
 syntax = "proto3";
 
-package chat;
+package virtualassistant;
 
-service Chat {
-  rpc SendMessage(Message) returns (Vazio) {}
-  rpc ReceiveMessages(Vazio) returns (stream Message) {}
+message VirtualAssistantRequest {
+  string message = 1;
 }
 
-message Message {
-  string username = 1;
-  string text = 2;
+message VirtualAssistantResponse {
+  string message = 1;
 }
-message Vazio{
 
+service VirtualAssistant {
+  rpc SendMessage(VirtualAssistantRequest) returns (VirtualAssistantResponse);
 }
